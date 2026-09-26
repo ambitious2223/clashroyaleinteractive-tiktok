@@ -1,0 +1,7 @@
+{
+  "name": "asure-royale-server",
+  "version": "2.1.8-21",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/main.js"
+}

@@ -1,0 +1,519 @@
+{
+  "version": 1,
+  "players": [
+    {
+      "name": "",
+      "accountLocked": 0,
+      "nameChangesCount": 0,
+      "arena": 21,
+      "trophies": 9000,
+      "highestTrophies": 9000,
+      "level": 13,
+      "xpPoints": 100000,
+      "gold": 1000000000,
+      "diamonds": 1000000000,
+      "tutorialStage": 7,
+      "tutorialCompleted": 1,
+      "friendToken": "",
+      "accountPassword": "",
+      "switchAccountTarget": 0,
+      "switchAccountToken": "",
+      "crownChestCount": 0,
+      "battleID": 0,
+      "decks": [
+        [
+          26000000,
+          26000001,
+          26000002,
+          26000003,
+          26000004,
+          26000005,
+          26000006,
+          26000007
+        ],
+        [
+          26000000,
+          26000001,
+          26000002,
+          26000003,
+          26000004,
+          26000005,
+          26000006,
+          26000007
+        ],
+        [
+          26000000,
+          26000001,
+          26000002,
+          26000003,
+          26000004,
+          26000005,
+          26000006,
+          26000007
+        ],
+        [
+          26000000,
+          26000001,
+          26000002,
+          26000003,
+          26000004,
+          26000005,
+          26000006,
+          26000007
+        ],
+        [
+          26000000,
+          26000001,
+          26000002,
+          26000003,
+          26000004,
+          26000005,
+          26000006,
+          26000007
+        ]
+      ],
+      "selectedDeck": 0,
+      "cards": [
+        {
+          "ID": 1,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 2,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 3,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 4,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 5,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 6,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 7,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 8,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 9,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 10,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 11,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 12,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 13,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 14,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 15,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 16,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 17,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 18,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 19,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 20,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 21,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 22,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 23,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 24,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 25,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 26,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 27,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 28,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 29,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 30,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 31,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 32,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 33,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 34,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 35,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 36,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 37,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 38,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 39,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 40,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 41,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 42,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 43,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 44,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 46,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 47,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 49,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 50,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 55,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 56,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 57,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 58,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 64,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 65,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 66,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 67,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 68,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 69,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 70,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 71,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 72,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 73,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 74,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 78,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 79,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 80,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 81,
+          "level": 10,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 82,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 83,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 84,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 85,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 86,
+          "level": 12,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 87,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 88,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 89,
+          "level": 4,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 90,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 91,
+          "level": 7,
+          "xpPoints": 100000
+        },
+        {
+          "ID": 94,
+          "level": 10,
+          "xpPoints": 100000
+        }
+      ],
+      "chests": [],
+      "inClan": 1,
+      "clan": {
+        "ClanHighID": 0,
+        "ClanLowID": 777,
+        "ClanRole": 2
+      },
+      "highID": 0,
+      "lowID": 2,
+      "token": "99360fe8afecc161b4189ee98d5b"
+    }
+  ],
+  "clans": [
+    {
+      "highID": 0,
+      "lowID": 777,
+      "name": "AsureLive.com",
+      "description": "Clan oficial de AsureLive",
+      "badge": 15,
+      "avatarID": 0,
+      "type": 0,
+      "location": 57,
+      "requiredTrophies": 0,
+      "trophies": 18000,
+      "members": [
+        {
+          "highID": 0,
+          "lowID": 2,
+          "name": "Player",
+          "role": 2,
+          "level": 13,
+          "arena": 21,
+          "trophies": 9000,
+          "donated": 0,
+          "donationsReceived": 0
+        },
+        {
+          "highID": 0,
+          "lowID": 1,
+          "name": "GRATIS EN",
+          "role": 1,
+          "level": 13,
+          "arena": 21,
+          "trophies": 9000,
+          "donated": 0,
+          "donationsReceived": 0
+        }
+      ],
+      "messages": []
+    }
+  ]
+}
