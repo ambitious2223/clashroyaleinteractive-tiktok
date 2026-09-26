@@ -59,6 +59,13 @@ Check it is alive:
 
 ## 5. Test a spawn without a stream
 
+> **A battle needs two participants.** ZrdRoyale is a 1v1 server — it has no
+> built-in bot opponent, so `/spawn` reports `No active battles` until two
+> accounts are actually in a match. The usual setup is **two Clash Royale
+> clients** (a second MuMu instance, or two accounts), one on each side. The
+> two sides are the "Red" and "Blue" captains; viewers' gifts spawn for whichever
+> side the gifter joined.
+
 1. Start a battle in the game client (solo vs bot or vs another player).
 2. Confirm it appears at `http://127.0.0.1:8080/battles`.
 3. Run `test_spawn.bat`, or:

@@ -64,7 +64,10 @@ selects the side (0/1). The battle must be live with both sides present.
 ## Current status / next steps
 
 - [x] Server runs, MySQL loads, spawn API listening.
-- [ ] Login handshake cleanup (ServerHello) — see `docs/SETUP.md`.
-- [ ] Persistent battle so `/spawn` always has a target.
-- [ ] Connector + viewer roster in Tikora.
-- [ ] Live end-to-end test.
+- [x] ServerHello handshake wired (client can reach Login).
+- [x] Tikora connector + `clash-royale` game registration (Tikora branch
+      `feat/clash-royale-integration`).
+- [ ] Verify client login on the emulator (needs a client pointed at this server).
+- [ ] A live battle for spawns — ZrdRoyale is 1v1 with no bot, so **two accounts**
+      must be in a match (see `docs/SETUP.md`).
+- [ ] Live end-to-end test with real gifts.
