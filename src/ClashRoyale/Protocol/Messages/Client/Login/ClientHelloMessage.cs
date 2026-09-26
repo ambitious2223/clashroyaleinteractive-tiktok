@@ -41,8 +41,35 @@ namespace ClashRoyale.Protocol.Messages.Client.Login
 
         public override async void Process()
         {
+            // ClientHello is always the first message and is never encrypted.
             Device.CurrentState = Device.State.Login;
-            Logger.Log($"ClientHello protocol={Protocol} key={KeyVersion} v={MajorVersion}.{MinorVersion}.{Build} (no ServerHello)", GetType());
+
+            Logger.Log(
+                $"ClientHello protocol={Protocol} key={KeyVersion} v={MajorVersion}.{MinorVersion}.{Build} fp={FingerprintSha}",
+                GetType());
+
+            // Only kick the client into a content patch if it actually sent a
+            // fingerprint and it does not match ours.
+            if (Resources.Configuration.UseContentPatch &&
+                !string.IsNullOrEmpty(FingerprintSha) &&
+                FingerprintSha != Resources.Fingerprint.Sha)
+            {
+                await new LoginFailedMessage(Device)
+                {
+                    ErrorCode = 7,
+                    ContentUrl = Resources.Configuration.PatchUrl,
+                    ResourceFingerprintData = Resources.Fingerprint.Json,
+                    SkipCrypto = true
+                }.SendAsync();
+                return;
+            }
+
+            // Standard handshake: answer with ServerHello (20100, plaintext) so the
+            // client advances to the Login step. Without this the client waits
+            // forever and never sends Login (10101).
+            await new ServerHelloMessage(Device).SendAsync();
+
+            Logger.Log("ServerHello (20100) sent; waiting for Login (10101).", GetType());
         }
     }
 }
