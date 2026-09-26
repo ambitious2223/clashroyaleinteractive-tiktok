@@ -31,8 +31,11 @@ namespace ClashRoyale.Database.Cache
                 else
                     player = await PlayerDb.GetAsync(userId);
 
-                if (player == null) return null;
-                if (player.Home.UserToken != token) return null;
+                if (player == null || player.Home.UserToken != token)
+                {
+                    Logger.Log($"Login token/id mismatch (id={userId}); creating new account.", GetType(), ErrorLevel.Warning);
+                    player = await PlayerDb.CreateAsync();
+                }
             }
 
             lock (SyncObject)

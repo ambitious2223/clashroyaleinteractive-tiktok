@@ -21,19 +21,22 @@ namespace ClashRoyale
            
             Console.WriteLine(Resources.Configuration.goldreward);
             Console.WriteLine(Resources.Configuration.gemsreward);
+
+            var httpPort = 8080;
+            Resources.SpawnHttp = new Core.Network.SpawnHttpServer();
+            Resources.SpawnHttp.Start(httpPort);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"[SpawnHTTP] Troop spawn API running on http://127.0.0.1:{httpPort}/");
+            Console.WriteLine($"[SpawnHTTP] POST /spawn  |  GET /battles  |  GET /cards");
+            Console.ForegroundColor = ConsoleColor.Green;
+
             WebhookUtils.SendNotify(Resources.Configuration.Srv_Webhook, Resources.LangConfiguration.SrvStarting, "Server Log");
-            if (ServerUtils.IsLinux())
-            {
-                // idk why orginal dev removed this lol
-                Logger.Log("Press any key to shutdown the server.", null);
-                Console.Read();
-            }
-            else
-            {
-                Logger.Log("Press any key to shutdown the server.", null);
-                
-                Console.Read();
-            }
+            
+            Logger.Log("Server is running. Press Ctrl+C or close window to stop.", null);
+            
+            var quitEvent = new ManualResetEvent(false);
+            Console.CancelKeyPress += (sender, e) => { e.Cancel = true; quitEvent.Set(); };
+            quitEvent.WaitOne();
             Shutdown();
             WebhookUtils.SendError(Resources.Configuration.Srv_Webhook, Resources.LangConfiguration.SrvClosing, "Server Log");
         }

@@ -32,13 +32,17 @@ namespace ClashRoyale.Logic
             var length = buffer.ReadMedium();
             var version = buffer.ReadUnsignedShort();
 
-            if (id < 10000 || id >= 20000) return;
+            if (id < 10000 || id >= 20000) 
+            {
+                Logger.Log($"Message ID {id} outside valid range, disconnecting", GetType(), ErrorLevel.Warning);
+                Disconnect();
+                return;
+            }
 
             if (!LogicScrollMessageFactory.Messages.ContainsKey(id))
             {
-                Logger.Log($"Message ID: {id}, V: {version}, L: {length} is not known.", GetType(),
+                Logger.Log($"Message ID: {id}, V: {version}, L: {length} is not known (ignored).", GetType(),
                     ErrorLevel.Warning);
-                Disconnect();
                 return;
             }
 
@@ -49,7 +53,7 @@ namespace ClashRoyale.Logic
             {
                 if (message.RequiredState != CurrentState && message.RequiredState != State.NotDefinied)
                 {
-                    Logger.Log($"[C] Message {id} is not allowed in this state!", GetType(),
+                    Logger.Log($"[C] Message {id} is not allowed in this state! Current: {CurrentState}, Required: {message.RequiredState}", GetType(),
                         ErrorLevel.Warning);
                     Disconnect();
                     return;
@@ -64,7 +68,7 @@ namespace ClashRoyale.Logic
                 message.Process();
 
                 Logger.Log($"[C] Message {id} ({message.GetType().Name}) handled.", GetType(),
-                    ErrorLevel.Debug);
+                    ErrorLevel.Info);
 
                 if (message.Save && CurrentState == State.Home) Player.Save();
             }

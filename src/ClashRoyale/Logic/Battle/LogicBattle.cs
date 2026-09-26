@@ -273,7 +273,7 @@ namespace ClashRoyale.Logic.Battle
 
             packet.WriteHex("000504077F7D7F0400050401007F7F0000");
             packet.WriteVInt(0); // Ms before regen mana
-            packet.WriteVInt(6); // Mana Start 
+            packet.WriteVInt(10); // Mana Start (UNLIMITED)
             packet.WriteVInt(0);
             packet.WriteVInt(0);
             packet.WriteVInt(0);
@@ -289,7 +289,7 @@ namespace ClashRoyale.Logic.Battle
 
             packet.WriteHex("00050401047D010400040706007F7F0000");
             packet.WriteVInt(0); // Ms before regen mana
-            packet.WriteVInt(6); // Elexir Start Enemy
+            packet.WriteVInt(10); // Elexir Start Enemy (UNLIMITED)
             packet.WriteVInt(0);
             packet.WriteVInt(0);
             packet.WriteVInt(0);
@@ -1021,17 +1021,17 @@ namespace ClashRoyale.Logic.Battle
 
         public static int[] KingTowerHp =
         {
-            2400, 2568, 2736, 2904, 3096, 3312, 3528, 3768, 4008, 4392, 4824, 5304, 5832
+            10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000
         };
 
         public static int[] DuoKingTowerHp =
         {
-            2880, 3082, 3284, 3485, 3716, 3975, 4234, 4522, 4810, 5271, 5789, 6365, 6999
+            12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000
         };
 
         public static int[] PrincessTowerHp =
         {
-            1400, 1512, 1624, 1750, 1890, 2030, 2184, 2352, 2534, 2786, 3052, 3346, 3668
+            8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000, 8000
         };
 
         #endregion

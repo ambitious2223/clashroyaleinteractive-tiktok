@@ -27,23 +27,18 @@ namespace ClashRoyale
                 case ErrorLevel.Info:
                 {
                     _logger.Info(message);
-
-                    Console.WriteLine($"[{logType.ToString()}] {message}");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[{logType}] {message}");
+                    Console.ResetColor();
                     break;
                 }
 
                 case ErrorLevel.Warning:
                 {
                     _logger.Warn(message);
-#if DEBUG
-                    lock (ConsoleSync)
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        Console.WriteLine($"[{logType.ToString()}] {message}");
-                        Console.ResetColor();
-                    }
-#endif
-
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"[{logType}] {message}");
+                    Console.ResetColor();
                     Resources.Sentry.Report(message.ToString(), type, logType);
                     break;
                 }
@@ -51,32 +46,19 @@ namespace ClashRoyale
                 case ErrorLevel.Error:
                 {
                     _logger.Error(message);
-#if DEBUG
-
-                    lock (ConsoleSync)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"[{logType.ToString()}] {message}");
-                        Console.ResetColor();
-                    }
-#endif
-
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"[{logType}] {message}");
+                    Console.ResetColor();
                     Resources.Sentry.Report(message.ToString(), type, logType);
                     break;
                 }
 
                 case ErrorLevel.Debug:
                 {
-#if DEBUG
                     _logger.Debug(message);
-
-                    lock (ConsoleSync)
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkCyan;
-                        Console.WriteLine($"[{logType.ToString()}] {message}");
-                        Console.ResetColor();
-                    }
-#endif
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine($"[{logType}] {message}");
+                    Console.ResetColor();
                     break;
                 }
             }

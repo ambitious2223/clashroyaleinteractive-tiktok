@@ -25,6 +25,7 @@ namespace ClashRoyale
         public static Leaderboard Leaderboard { get; set; }
 
         public static NettyService Netty { get; set; }
+        public static Core.Network.SpawnHttpServer SpawnHttp { get; set; }
         public static NodeManager NodeManager { get; set; }
 
         public static Fingerprint Fingerprint { get; set; }

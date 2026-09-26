@@ -73,7 +73,7 @@ namespace ClashRoyale.Protocol
             {
                 await Device.Handler.Channel.WriteAndFlushAsync(this);
 
-                Logger.Log($"[S] Message {Id} ({GetType().Name}) sent.", GetType(), ErrorLevel.Debug);
+                Logger.Log($"[S] Message {Id} ({GetType().Name}) sent.", GetType(), ErrorLevel.Info);
             }
             catch (Exception)
             {

@@ -1,81 +1,38 @@
-# ClashRoyale (2017)
-[![clash royale](https://img.shields.io/badge/Clash%20Royale-1.9.2-brightred.svg?style=flat")](https://clash-royale.en.uptodown.com/android/download/1632865)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![Build Status](https://action-badges.now.sh/Zordon1337/ZrdRoyale)
+# Clash Royale Interactive (TikTok LIVE)
 
------------------------------------------
-## ✔What was added/changed in this fork✔
-1. Fixed DB(before fixing saving players progress always failed due to non existing column)<br /> 
-2. Only admins can use chat commands(add gems, trophies etc)<br/> 
-3. Fixed chests not removing gems after buying<br/>
-4. Discord webhook logging(players connections,disconnections, battle logs etc)
-5. fixed bug where player after arena 7 were playing on wrong arena for example player on arena 9 was playing on frozen peak which is map from arena 8
-6. Gems and gold rewards after win.
-7. Now server is more customizable without recompiling it, now you can edit:
-``` 
-Minimum Trophies and Maximum Trophies after Win
-Default amount of gems and gold
-Gems and gold rewards after win
-Admins
+Turn TikTok LIVE gifts into troops in a live Clash Royale battle. Viewers pick a
+side and their gifts spawn troops for that side — viewers vs viewers, with the
+streamer joining when they want.
+
+This repository is the **game server**. The TikTok side is the **Tikora** desktop
+app (`ambitious2223/tiktok-games-launcher`), which routes gifts to this server.
+
+```
+Tikora hub (:27016)  →  clash-royale connector  →  spawn API (:8080)  →  game server (:9339)
 ```
 
-# TODO ✅
-```
-Fix trophies after winning
-fix free chests bug on arena 10
-Remake README.md
-```
-## Clash royale server for version 1.9.2/1.9.3 written in .NET
+## Quick start
 
+1. Install the requirements in **[docs/SETUP.md](docs/SETUP.md)**.
+2. Run `scripts/start-game.bat` (or let Tikora launch it as the `clash-royale` game).
+3. Open Tikora, connect to your LIVE, and assign gifts to the `spawn_troop` effect.
+4. Play. See **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** for how it all fits.
 
-## Battles
-The server supports battles, for those a patched client is neccessary.
+## Repository layout
 
-[See the wiki for a tutorial](https://github.com/Erder00/ZrdRoyale/wiki)
+| Path | What it is |
+|---|---|
+| `src/ClashRoyale/` | the .NET 8 server (ZrdRoyale) |
+| `src/ClashRoyale/Core/Network/SpawnHttpServer.cs` | the `:8080` spawn API Tikora calls |
+| `scripts/start-game.bat` | one-click launcher (MySQL + ADB + server) |
+| `docs/` | setup and architecture notes |
+| `config.example.json` | server config template (copy to `config.json`) |
 
-## How to start
+## Credits
 
-#### Requirements:
-  - [.NET SDK 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-  - MySql Database (on Debian i suggest LAMP with PMA or on windows i suggest XAMPP with PMA)
+A fork of [ZrdRoyale](https://github.com/Zordon1337/ZrdRoyale) by Zordon1337, which
+is itself based on the original Clash Royale server work by Incredible / RetroRoyale.
+Licensed under GPLv3 (see [LICENSE](LICENSE)).
 
-for Ubuntu use these commands to set it up:
-```
-mkdir ClashRoyale
-git clone https://github.com/Zordon1337/ZrdRoyale.git && cd ClashRoyale/src/ClashRoyale
-
-dotnet publish
-```
-Run the server once to create the config.json file. (dotnet bin/Release/net8.0/ClashRoyale.dll)
-
-To configurate your server, such as the database you have to edit the ```config.json``` file.
-
-Run it again to actually start it: ```dotnet bin/Release/net8.0/ClashRoyale.dll```
-
-It should look like this:
-
-
-![running server](https://i.imgur.com/QKKW9QV.png)
-
-#### Run the server:
-
-###### Main Server:
-```dotnet bin/Release/net8.0/ClashRoyale.dll```
-
-###### Battle Server:
-```dotnet ClashRoyale.Battles/bin/Release/netcoreapp3.1/ClashRoyale.Battles.dll``` (from /ZrdRoyale/src/)
-
-#### Update the server:
-###### Main Server:
-```git pull && dotnet publish "ClashRoyale.csproj" -c Release -o app && dotnet bin/Release/net8.0/ClashRoyale.dll```
-
-###### Battle Server:
-```git pull && dotnet publish "ClashRoyale.Battles.csproj" -c Release -o app && dotnet ClashRoyale.Battles/bin/Release/netcoreapp3.1/ClashRoyale.Battles.dll```
-
-## Need help?
-As of 16/05/2025 i decided to stop supporting ZrdRoyale<br>
-Why?<br>
-The reason is simple, my telegram turned into spam app.<br>
-I understand that not everyone has coding knowledge but<br>
-getting dumb(for me) questions became frustrating for me<br>
-maybe some day i will create tutorial or just faq in here<br>
+> Private game servers and LIVE automation are for personal/local use; respect
+> Supercell's and TikTok's terms before distributing anything built on this.

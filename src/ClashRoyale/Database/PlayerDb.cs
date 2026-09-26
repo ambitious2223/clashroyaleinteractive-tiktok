@@ -25,6 +25,7 @@ namespace ClashRoyale.Database
                 UserID = Resources.Configuration.MySqlUserId,
                 Password = Resources.Configuration.MySqlPassword,
                 SslMode = MySqlSslMode.None,
+                AllowPublicKeyRetrieval = true,
                 MinimumPoolSize = 4,
                 MaximumPoolSize = 20,
                 CharacterSet = "utf8mb4"
@@ -135,10 +136,14 @@ namespace ClashRoyale.Database
                     return null;
 
                 var player = new Player(id + 1);
+                player.Home.Arena.Trophies = 0;
+                player.Home.PreferredDeviceLanguage = "EN";
+                player.Home.FacebookId = "";
+                player.Home.Sessions = new List<Session>(50);
 
                 using (var cmd =
                     new MySqlCommand(
-                        $"INSERT INTO {Name} (`Id`, `Trophies`, `Language`, `FacebookId`, `Home`, `Sessions`) VALUES ({id + 1}, {player.Home.Arena.Trophies}, @language, @fb, @home, @sessions)")
+                        $"INSERT INTO {Name} (`Id`, `Trophies`, `Language`, `FacebookId`, `Home`, `Sessions`) VALUES ({id + 1}, 0, @language, @fb, @home, @sessions)")
                 )
                 {
 #pragma warning disable 618

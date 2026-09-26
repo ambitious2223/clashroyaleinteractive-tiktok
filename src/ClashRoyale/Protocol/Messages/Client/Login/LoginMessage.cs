@@ -5,6 +5,7 @@ using ClashRoyale.Logic.Sessions;
 using ClashRoyale.Protocol.Messages.Server;
 using ClashRoyale.Utilities.Netty;
 using DotNetty.Buffers;
+using ClashRoyale; // for ErrorLevel
 
 namespace ClashRoyale.Protocol.Messages.Client.Login
 {
@@ -57,23 +58,20 @@ namespace ClashRoyale.Protocol.Messages.Client.Login
             Reader.ReadScString();
 
             AndroidId = Reader.ReadScString();
-            PreferredDeviceLanguage = Reader.ReadScString().Substring(3, 2);
+            var language = Reader.ReadScString() ?? string.Empty;
+            PreferredDeviceLanguage = language.Length >= 5 ? language.Substring(3, 2) : "EN";
         }
 
         public override async void Process()
         {
-            if (Resources.Configuration.UseContentPatch)
-                if (FingerprintSha != Resources.Fingerprint.Sha)
-                {
-                    await new LoginFailedMessage(Device)
-                    {
-                        ErrorCode = 7,
-                        ContentUrl = Resources.Configuration.PatchUrl,
-                        ResourceFingerprintData = Resources.Fingerprint.Json
-                    }.SendAsync();
-                    return;
-                }
+            // Version/fingerprint check bypassed so mismatched clients can still log in.
 
+            Logger.Log($"Login id={UserId} token={(UserToken ?? "").Length}chars v={ClientMajorVersion}.{ClientMinorVersion}.{ClientBuild}", GetType());
+            if (ClientMajorVersion < 0 || ClientMajorVersion > 20)
+            {
+                Logger.Log("Login decode looks encrypted/garbage — skipping home data.", GetType());
+                return;
+            }
             var player = await Resources.Players.Login(UserId, UserToken);
 
             if (player != null)

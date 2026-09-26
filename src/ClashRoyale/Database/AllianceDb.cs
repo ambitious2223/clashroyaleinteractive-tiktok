@@ -25,6 +25,7 @@ namespace ClashRoyale.Database
                 UserID = Resources.Configuration.MySqlUserId,
                 Password = Resources.Configuration.MySqlPassword,
                 SslMode = MySqlSslMode.None,
+                AllowPublicKeyRetrieval = true,
                 MinimumPoolSize = 4,
                 MaximumPoolSize = 20,
                 CharacterSet = "utf8mb4"

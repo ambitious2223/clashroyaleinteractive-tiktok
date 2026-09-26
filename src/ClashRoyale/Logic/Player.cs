@@ -94,7 +94,6 @@ namespace ClashRoyale.Logic
         public void LogicClientHome(IByteBuffer packet)
         {
             packet.WriteLong(Home.Id);
-            WebhookUtils.SendNotify(Resources.Configuration.Plr_Webhook, Resources.LangConfiguration.PlrJoined.Replace("%PlayerName", Home.Name),"Player Log");
             // Unknown
             {
                 packet.WriteVInt(0);
@@ -143,7 +142,7 @@ namespace ClashRoyale.Logic
                 packet.WriteVInt(0);
 
                 packet.WriteScString("2v2 Button");
-                packet.WriteScString("{\"HideTimer\":false,\"HidePopupTimer\":false}\"");
+                packet.WriteScString("{\"HideTimer\":false,\"HidePopupTimer\":false}");
             }
 
             packet.WriteVInt(0);
@@ -176,7 +175,7 @@ namespace ClashRoyale.Logic
                 packet.WriteScString("{\"ID\":\"SHOP_CYCLE_MANAGEMENT\",\"Params\":{\"EpicChestCycleDuration\":5,\"LegendaryChestCycleDuration\":7,\"ArenaPackCycleDuration\":7}}");*/
 
                 packet.WriteVInt(2);
-                packet.WriteScString("{\"ID\":\"CARD_RELEASE\",\"Params\":{}})");
+                packet.WriteScString("{\"ID\":\"CARD_RELEASE\",\"Params\":{}}");
 
                 /*packet.WriteVInt(3);
                 packet.WriteScString("{\"ID\":\"KILL_SWITCH\",\"Params\":{\"HideShopOffersUI\":false}}");*/
